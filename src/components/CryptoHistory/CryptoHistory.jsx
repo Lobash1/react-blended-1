@@ -1,4 +1,4 @@
-// import { transpose } from 'date-fns';
+import { format } from 'date-fns';
 import style from './CryptoHistory.module.css';
 
 const CryptoHistory = ({ items }) => {
@@ -19,7 +19,9 @@ const CryptoHistory = ({ items }) => {
             <td className={style.td}>{index + 1}</td>
             <td className={style.td}>{price}</td>
             <td className={style.td}>{amount}</td>
-            <td className={style.td}>{date}</td>
+            <td className={style.td}>
+              {format(new Date(date), 'MM/dd/yyyy, h:mm a')}
+            </td>
           </tr>
         ))}
       </tbody>
